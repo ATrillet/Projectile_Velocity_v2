@@ -11,9 +11,6 @@ float dist = 101600; //4 inches.  Change if sensing range differs
 void setup()
 {
   Serial.begin(9600);
-  //pinMode(pin1, INPUT);
-  //pinMode(pin2, INPUT);
-  //delay(5000)
   attachInterrupt(digitalPinToInterrupt(pin1), timer2, RISING);
   attachInterrupt(digitalPinToInterrupt(pin2), timer1, RISING);
   
@@ -44,22 +41,11 @@ void loop()
     Serial.print("Alignment is off, readjust\n");     //Notify alignment problem
     return;     //start the loop over again
   }
+  
   Serial.print("Ready to fire\n");      //Notify user that system is ready
   Serial.print("Press y then enter when ready to fire\n");
   while('y' != Serial.read()){}
   Serial.print("Fire!\n");
-  
-//  while(digitalRead(pin2) == LOW){}   //Don't allow the code to continue until the first sensor is activated
-//                                      //If we endlessly loop we might have missed the ball, include a return in that case
-//  time1 = micros();                   //Record the time
-//        
-//  while(digitalRead(pin1) == LOW){}   //Don't allow the code to continue until the second sensor is activated
-//  time2 = micros();                   //Record the time
-//
-//  if(time1 == NULL || time2 == NULL) {      //If the projectile was not detected, notify
-//    Serial.print("Projectile not detected\n");
-//  }
-//  else {
   delay(5000);
 
   if (time1 == NULL) {
