@@ -1,5 +1,5 @@
 # Projectile_Velocity_v2
-Implementation of Interrupts
+Projectile velocity code with implementation of interrupts
 
 This is the second version of the projectile velocity design code.
 
